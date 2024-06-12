@@ -1,4 +1,6 @@
 import Header from "../components/Header/Header";
+import Table from "../components/Table/Table";
+
 import "./Home.scss";
 
 const Home = () => {
@@ -6,7 +8,7 @@ const Home = () => {
     <div>
       <Header />
       <section>
-        <h1>Table</h1>
+        <Table />
       </section>
     </div>
   );
