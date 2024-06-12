@@ -1,0 +1,12 @@
+$gray-00: rgba(240, 240, 240, 1);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background-color: $gray-00;
+}
