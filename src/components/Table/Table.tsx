@@ -80,9 +80,9 @@ const Table: React.FC = () => {
                   <td>
                     <button onClick={() => toggleRow(Number(employee.id))}>
                       {expandedRows.includes(Number(employee.id)) ? (
-                        <img src={aDown} alt='arrow-down' />
-                      ) : (
                         <img src={aUp} alt='arrow-up' />
+                      ) : (
+                        <img src={aDown} alt='arrow-down' />
                       )}
                     </button>
                   </td>
