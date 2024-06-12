@@ -7,6 +7,7 @@ import aDown from "../../assets/arrow-down.svg";
 import aUp from "../../assets/arrow-up.svg";
 
 import "./Table.scss";
+import SearchBar from "../SearchBar/SearchBar";
 
 const Table: React.FC = () => {
   const { allEmployees, filteredEmployees } = useEmployees();
@@ -36,6 +37,7 @@ const Table: React.FC = () => {
     <div className='table-wrapper'>
       <div className='top-wrapper'>
         <h4>Funcionários</h4>
+        <SearchBar />
       </div>
       <div className='table-table-wrapper'></div>
       <table className='table'>
