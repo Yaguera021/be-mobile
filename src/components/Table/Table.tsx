@@ -34,25 +34,24 @@ const Table: React.FC = () => {
   };
 
   return (
-    <div className='table-wrapper'>
+    <>
       <div className='top-wrapper'>
         <h4>Funcionários</h4>
         <SearchBar />
       </div>
-      <div className='table-table-wrapper'></div>
       <table className='table'>
         <thead>
           <tr>
-            <th>Foto</th>
-            <th>Nome</th>
+            <th className='th-photo'>Foto</th>
+            <th className='th-name'>Nome</th>
             {isDesktop ? (
               <>
-                <th>Cargo</th>
-                <th>Data de admissão</th>
-                <th>Telefone</th>
+                <th className='tb-th-job'>Cargo</th>
+                <th className='tb-th-data'>Data de admissão</th>
+                <th className='tb-th-cellphone'>Telefone</th>
               </>
             ) : (
-              <th>
+              <th className='th-ellipse'>
                 <img className='ellipse' src={ellipse} alt='' />
               </th>
             )}
@@ -65,24 +64,28 @@ const Table: React.FC = () => {
           ).map((employee) => (
             <React.Fragment key={employee.id}>
               <tr>
-                <td>
+                <td className='tb-td-image'>
                   <img src={employee.image} alt={employee.name} />
                 </td>
-                <td>{employee.name}</td>
+                <td className='tb-td-name'>{employee.name}</td>
                 {isDesktop && (
                   <>
-                    <td>{employee.job}</td>
-                    <td>{formatDate(employee.admission_date)}</td>
-                    <td>{formatPhoneNumber(employee.phone)}</td>
+                    <td className='tb-job'>{employee.job}</td>
+                    <td className='tb-data'>
+                      {formatDate(employee.admission_date)}
+                    </td>
+                    <td className='tb-cellphone'>
+                      {formatPhoneNumber(employee.phone)}
+                    </td>
                   </>
                 )}
                 {!isDesktop && (
-                  <td>
+                  <td className='tb-td-button'>
                     <button onClick={() => toggleRow(Number(employee.id))}>
                       {expandedRows.includes(Number(employee.id)) ? (
-                        <img src={aDown} alt='arrow-down' />
-                      ) : (
                         <img src={aUp} alt='arrow-up' />
+                      ) : (
+                        <img src={aDown} alt='arrow-down' />
                       )}
                     </button>
                   </td>
@@ -112,7 +115,7 @@ const Table: React.FC = () => {
           ))}
         </tbody>
       </table>
-    </div>
+    </>
   );
 };
 

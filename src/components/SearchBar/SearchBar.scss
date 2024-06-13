@@ -18,14 +18,14 @@ $gray-1: rgba(223, 223, 223, 1);
 
   input {
     width: 100%;
-    padding: 12px 16px;
+    padding: 12px 16px 12px 16px;
     border: none;
     outline: none;
     border: 1px solid $gray-1;
     border-radius: 8px;
     font-size: 16px;
-    background-image: url("../../assets/images/lupa.png");
-    background-position: right 12px center;
+    background-image: url("../../assets/search.svg");
+    background-position: right 14px center;
     background-repeat: no-repeat;
   }
 
@@ -44,11 +44,12 @@ $gray-1: rgba(223, 223, 223, 1);
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin: 10px 0;
+    margin: 18px 0;
+    margin-right: 5px;
   }
 
   .input-container {
-    width: 40%;
-    margin-top: 15px;
+    width: 30%;
+    margin-top: 16px;
   }
 }

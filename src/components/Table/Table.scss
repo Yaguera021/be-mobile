@@ -3,15 +3,12 @@ $white: #ffffff;
 $black: rgba(28, 28, 28, 1);
 $gray-1: rgba(223, 223, 223, 1);
 
-.table-wrapper {
-  width: 100%;
-}
-
 table {
   border-collapse: collapse;
   width: 100%;
   thead {
     tr {
+      height: 47px;
       th {
         background: $blue-primary;
         color: $white;
@@ -19,21 +16,27 @@ table {
         font-size: 16px;
         text-transform: uppercase;
         line-height: 17px;
-        padding: 10px 0;
+        padding: 14px 0px 14px 0px;
         text-align: center;
-      }
-
-      th img {
-        width: 8px;
-        height: 8px;
-      }
-
-      th:first-child {
-        border-top-left-radius: 8px;
-      }
-
-      th:last-child {
-        border-top-right-radius: 8px;
+        img {
+          width: 8px;
+          height: 8px;
+        }
+        &:first-child {
+          border-top-left-radius: 8px;
+        }
+        &:last-child {
+          border-top-right-radius: 8px;
+        }
+        &.th-photo {
+          padding-left: 4px;
+        }
+        &.th-name {
+          padding-right: 14px;
+        }
+        &.th-ellipse {
+          padding-bottom: 16px;
+        }
       }
     }
   }
@@ -44,19 +47,26 @@ table {
       box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
       td {
         text-align: center;
-        padding: 10px 0;
-
         button {
           border: none;
           background-color: transparent;
           cursor: pointer;
           width: 32px;
           height: 32px;
-
           img {
             width: 17px;
-            height: 9;
+            height: 9px;
           }
+        }
+        &.tb-td-image {
+          padding-top: 12px;
+          padding-left: 12px;
+        }
+        &.tb-td-name {
+          padding-right: 12px;
+        }
+        &.tb-td-button {
+          padding-top: 4px;
         }
       }
 
@@ -70,19 +80,16 @@ table {
             align-items: center;
           }
         }
-
         .details {
           width: 100%;
           padding: 16px 15px;
           display: flex;
           flex-direction: column;
           gap: 15px;
-
           p {
             display: flex;
             justify-content: space-between;
             border-bottom: 1px dotted $gray-1;
-
             strong {
               font-weight: 600;
             }
@@ -97,4 +104,49 @@ table img {
   width: 34px;
   height: 34px;
   border-radius: 999px;
+}
+
+@media screen and (min-width: 768px) {
+  table {
+    thead {
+      tr {
+        height: 47px;
+        th {
+          img {
+            width: 8px;
+            height: 8px;
+            margin-right: 2px;
+            margin-bottom: 2px;
+          }
+          &.tb-th-job {
+            padding-right: 10px;
+          }
+          &.tb-th-data {
+            padding-left: 70px;
+          }
+          &.tb-th-cellphone {
+            padding-right: 70px;
+          }
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        height: 47px;
+        td {
+          &.tb-td-image {
+            padding-left: 14px;
+            padding-top: 7px;
+          }
+          &.tb-td-name {
+            padding-top: 0;
+          }
+          &.-job {
+            padding-left: 5px;
+          }
+        }
+      }
+    }
+  }
 }
