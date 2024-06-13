@@ -34,12 +34,11 @@ const Table: React.FC = () => {
   };
 
   return (
-    <div className='table-wrapper'>
+    <>
       <div className='top-wrapper'>
         <h4>Funcionários</h4>
         <SearchBar />
       </div>
-      <div className='table-table-wrapper'></div>
       <table className='table'>
         <thead>
           <tr>
@@ -47,9 +46,9 @@ const Table: React.FC = () => {
             <th className='th-name'>Nome</th>
             {isDesktop ? (
               <>
-                <th>Cargo</th>
-                <th>Data de admissão</th>
-                <th>Telefone</th>
+                <th className='tb-th-job'>Cargo</th>
+                <th className='tb-th-data'>Data de admissão</th>
+                <th className='tb-th-cellphone'>Telefone</th>
               </>
             ) : (
               <th className='th-ellipse'>
@@ -71,9 +70,13 @@ const Table: React.FC = () => {
                 <td className='tb-td-name'>{employee.name}</td>
                 {isDesktop && (
                   <>
-                    <td>{employee.job}</td>
-                    <td>{formatDate(employee.admission_date)}</td>
-                    <td>{formatPhoneNumber(employee.phone)}</td>
+                    <td className='tb-job'>{employee.job}</td>
+                    <td className='tb-data'>
+                      {formatDate(employee.admission_date)}
+                    </td>
+                    <td className='tb-cellphone'>
+                      {formatPhoneNumber(employee.phone)}
+                    </td>
                   </>
                 )}
                 {!isDesktop && (
@@ -112,7 +115,7 @@ const Table: React.FC = () => {
           ))}
         </tbody>
       </table>
-    </div>
+    </>
   );
 };
 
