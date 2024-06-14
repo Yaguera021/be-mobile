@@ -6,7 +6,7 @@ $gray-1: rgba(223, 223, 223, 1);
   width: 100%;
   position: relative;
   margin-top: 28px;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 
   input {
     width: 100%;
@@ -33,6 +33,6 @@ $gray-1: rgba(223, 223, 223, 1);
 @media (min-width: 768px) {
   .input-container {
     width: 30%;
-    margin-top: 18px;
+    margin-top: 16px;
   }
 }
