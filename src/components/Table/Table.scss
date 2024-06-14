@@ -4,6 +4,14 @@ $black: rgba(28, 28, 28, 1);
 $gray-1: rgba(223, 223, 223, 1);
 $shadow-1: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
 
+.top-wrapper {
+  margin-top: 20px;
+  h4 {
+    font-size: 24px;
+    font-weight: 500;
+  }
+}
+
 table {
   border-collapse: collapse;
   width: 100%;
@@ -30,13 +38,15 @@ table {
           border-top-right-radius: 8px;
         }
         &.th-photo {
-          padding-left: 4px;
+          width: 41px;
+          padding: 12px 12px 12px 12px;
         }
         &.th-name {
-          padding-right: 14px;
+          width: 200px;
+          padding: 12px 12px 12px 12px;
         }
         &.th-ellipse {
-          padding-bottom: 16px;
+          padding: 12px 12px 12px 12px;
         }
       }
     }
@@ -60,11 +70,11 @@ table {
           }
         }
         &.tb-td-image {
-          padding-top: 12px;
-          padding-right: 14px;
+          padding: 4px 0 8px 0;
         }
         &.tb-td-name {
           padding-right: 12px;
+          padding-top: 5px;
         }
         &.tb-td-button {
           padding-top: 4px;
@@ -108,11 +118,21 @@ table img {
   border-radius: 999px;
 }
 
+// DESKTOP RESPONSIVE (MIN-WIDTH: 768PX)
+
 @media screen and (min-width: 768px) {
+  .top-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 16px 0 14px 0;
+    margin-right: 3px;
+  }
+
   table {
     thead {
       tr {
-        height: 47px;
         th {
           img {
             width: 8px;
@@ -120,32 +140,43 @@ table img {
             margin-right: 2px;
             margin-bottom: 2px;
           }
-          &.tb-th-job {
+          &.th-photo {
+            width: 96px;
             padding-right: 10px;
           }
-          &.tb-th-data {
-            padding-left: 70px;
+          &.th-name {
+            width: 172px;
+            padding-right: 62px;
           }
-          &.tb-th-cellphone {
-            padding-right: 70px;
+          &.th-job {
+            width: 192px;
+            padding-right: 15px;
+          }
+          &.th-data {
+            width: 180px;
+            padding-left: 30px;
+          }
+          &.th-cellphone {
+            width: 200px;
+            padding-right: 40px;
           }
         }
       }
     }
-
     tbody {
       tr {
-        height: 47px;
         td {
           &.tb-td-image {
-            padding-left: 14px;
-            padding-top: 7px;
+            padding-right: 10px;
           }
           &.tb-td-name {
-            padding-top: 0;
+            padding-right: 44px;
           }
-          &.-job {
-            padding-left: 5px;
+          &.tb-data {
+            padding-right: 30px;
+          }
+          &.tb-cellphone {
+            padding-left: 30px;
           }
         }
       }
