@@ -9,7 +9,7 @@ table {
   width: 100%;
   thead {
     tr {
-      height: 47px;
+      height: 50px;
       th {
         background: $blue-primary;
         color: $white;
@@ -30,13 +30,15 @@ table {
           border-top-right-radius: 8px;
         }
         &.th-photo {
-          padding-left: 4px;
+          width: 41px;
+          padding: 12px 12px 12px 12px;
         }
         &.th-name {
-          padding-right: 14px;
+          width: 200px;
+          padding: 12px 12px 12px 12px;
         }
         &.th-ellipse {
-          padding-bottom: 16px;
+          padding: 12px 12px 12px 12px;
         }
       }
     }
@@ -60,11 +62,11 @@ table {
           }
         }
         &.tb-td-image {
-          padding-top: 12px;
-          padding-right: 14px;
+          padding: 12px 0 8px 0;
         }
         &.tb-td-name {
           padding-right: 12px;
+          padding-top: 5px;
         }
         &.tb-td-button {
           padding-top: 4px;
