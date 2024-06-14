@@ -17,7 +17,7 @@ table {
   width: 100%;
   thead {
     tr {
-      height: 50px;
+      height: 47px;
       th {
         background: $blue-primary;
         color: $white;
@@ -70,7 +70,7 @@ table {
           }
         }
         &.tb-td-image {
-          padding: 12px 0 8px 0;
+          padding: 4px 0 8px 0;
         }
         &.tb-td-name {
           padding-right: 12px;
@@ -127,13 +127,12 @@ table img {
     justify-content: space-between;
     align-items: center;
     margin: 16px 0 14px 0;
-    margin-right: 5px;
+    margin-right: 3px;
   }
 
   table {
     thead {
       tr {
-        height: 47px;
         th {
           img {
             width: 8px;
@@ -171,7 +170,7 @@ table img {
             padding-right: 10px;
           }
           &.tb-td-name {
-            padding-left: 40px;
+            padding-right: 44px;
           }
           &.tb-data {
             padding-right: 30px;
