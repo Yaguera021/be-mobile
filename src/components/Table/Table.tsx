@@ -46,9 +46,9 @@ const Table: React.FC = () => {
             <th className='th-name'>Nome</th>
             {isDesktop ? (
               <>
-                <th className='tb-th-job'>Cargo</th>
-                <th className='tb-th-data'>Data de admissão</th>
-                <th className='tb-th-cellphone'>Telefone</th>
+                <th className='th-job'>Cargo</th>
+                <th className='th-data'>Data de admissão</th>
+                <th className='th-cellphone'>Telefone</th>
               </>
             ) : (
               <th className='th-ellipse'>
