@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState, useCallback } from "react";
 import { useEmployees } from "../../hooks/employeeHooks";
 import { formatDate, formatPhoneNumber } from "../../utils/formatFunctions";
+import { debounce } from "../../utils/debounce";
 
 import ellipse from "../../assets/ellipse.svg";
 import aDown from "../../assets/arrow-down.svg";
@@ -23,10 +24,16 @@ const Table: React.FC = () => {
   }, []);
 
   useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth > 768);
+    };
+
+    const debouncedHandleResize = debounce(handleResize, 200);
+
     handleResize();
-    window.addEventListener("resize", handleResize);
+    window.addEventListener("resize", debouncedHandleResize);
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("resize", debouncedHandleResize);
     };
   }, [handleResize]);
 
