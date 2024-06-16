@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState, useCallback } from "react";
 import { useEmployees } from "../../hooks/employeeHooks";
 import { formatDate, formatPhoneNumber } from "../../utils/formatFunctions";
+import { debounce } from "../../utils/debounce";
 
 import ellipse from "../../assets/ellipse.svg";
 import aDown from "../../assets/arrow-down.svg";
@@ -14,24 +15,33 @@ const Table: React.FC = () => {
   const [expandedRows, setExpandedRows] = useState<number[]>([]);
   const [isDesktop, setIsDesktop] = useState<boolean>(false);
 
+  const employeesToDisplay = useMemo(() => {
+    return filteredEmployees.length > 0 ? filteredEmployees : allEmployees;
+  }, [allEmployees, filteredEmployees]);
+
+  const handleResize = useCallback(() => {
+    setIsDesktop(window.innerWidth > 768);
+  }, []);
+
   useEffect(() => {
     const handleResize = () => {
       setIsDesktop(window.innerWidth > 768);
     };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
-  const toggleRow = (id: number) => {
-    setExpandedRows(
-      expandedRows.includes(id)
-        ? expandedRows.filter((rowId) => rowId !== id)
-        : [...expandedRows, id],
+    const debouncedHandleResize = debounce(handleResize, 200);
+
+    handleResize();
+    window.addEventListener("resize", debouncedHandleResize);
+    return () => {
+      window.removeEventListener("resize", debouncedHandleResize);
+    };
+  }, [handleResize]);
+
+  const toggleRow = useCallback((id: number) => {
+    setExpandedRows((prev) =>
+      prev.includes(id) ? prev.filter((rowId) => rowId !== id) : [...prev, id],
     );
-  };
+  }, []);
 
   return (
     <>
@@ -58,17 +68,14 @@ const Table: React.FC = () => {
           </tr>
         </thead>
         <tbody>
-          {(filteredEmployees.length > 0
-            ? filteredEmployees
-            : allEmployees
-          ).map((employee) => (
+          {employeesToDisplay.map((employee) => (
             <React.Fragment key={employee.id}>
               <tr>
                 <td className='tb-td-image'>
                   <img src={employee.image} alt={employee.name} />
                 </td>
                 <td className='tb-td-name'>{employee.name}</td>
-                {isDesktop && (
+                {isDesktop ? (
                   <>
                     <td className='tb-job'>{employee.job}</td>
                     <td className='tb-data'>
@@ -78,10 +85,12 @@ const Table: React.FC = () => {
                       {formatPhoneNumber(employee.phone)}
                     </td>
                   </>
-                )}
-                {!isDesktop && (
+                ) : (
                   <td className='tb-td-button'>
-                    <button onClick={() => toggleRow(Number(employee.id))}>
+                    <button
+                      onClick={() => toggleRow(Number(employee.id))}
+                      aria-expanded={expandedRows.includes(Number(employee.id))}
+                    >
                       {expandedRows.includes(Number(employee.id)) ? (
                         <img src={aUp} alt='arrow-up' />
                       ) : (
