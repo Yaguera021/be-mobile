@@ -15,7 +15,7 @@ https://github.com/Yaguera021/be-mobile/assets/125056960/c1eceedc-fe22-453d-bb69
 
 ## Instalação 💻
 
-1. Clone o repositório [https://github.com/Yaguera021/bemobile](https://github.com/Yaguera021/bemobile)
+1. Clone o repositório [https://github.com/Yaguera021/be-mobile](https://github.com/Yaguera021/be-mobile)
 2. Execute `npm install` para instalar as dependências.
 3. Navegue até o diretório do projeto: `src/data/` e execute o comando `json-server db.json`.
 4. Após iniciar o json-server, execute `npm run dev` para iniciar a aplicação React.
