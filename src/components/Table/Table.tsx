@@ -101,9 +101,22 @@ const Table: React.FC = () => {
                 )}
               </tr>
               {!isDesktop && expandedRows.includes(Number(employee.id)) && (
-                <tr className='expanded-items expanded'>
-                  <td colSpan={5}>
-                    <div className='details'>
+                <tr className='expanded-items'>
+                  <td
+                    colSpan={5}
+                    className={`expanded ${
+                      expandedRows.includes(Number(employee.id))
+                        ? "expanded"
+                        : "collapsed"
+                    }`}
+                  >
+                    <div
+                      className={`details ${
+                        expandedRows.includes(Number(employee.id))
+                          ? "expanded"
+                          : "collapsed"
+                      }`}
+                    >
                       <p>
                         <strong>Cargo</strong>
                         <span>{employee.job}</span>
