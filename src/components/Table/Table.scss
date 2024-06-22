@@ -86,10 +86,15 @@ table {
         td {
           padding: 0;
           background-color: $white;
+          overflow: hidden;
+          transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out;
+          max-height: 0;
           &.expanded {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            max-height: 500px;
+            animation: expand 0.8s ease-in-out forwards;
+          }
+          &.collapsed {
+            animation: collapse 0.4s ease-in-out forwards;
           }
         }
         .details {
@@ -98,6 +103,8 @@ table {
           display: flex;
           flex-direction: column;
           gap: 15px;
+          opacity: 0;
+          transition: opacity 0.5s ease-in-out;
           p {
             display: flex;
             justify-content: space-between;
@@ -105,6 +112,9 @@ table {
             strong {
               font-weight: 600;
             }
+          }
+          &.expanded {
+            opacity: 1;
           }
         }
       }
@@ -181,5 +191,27 @@ table img {
         }
       }
     }
+  }
+}
+
+@keyframes expand {
+  from {
+    max-height: 0;
+    opacity: 0;
+  }
+  to {
+    max-height: 500px;
+    opacity: 1;
+  }
+}
+
+@keyframes collapse {
+  from {
+    max-height: 500px;
+    opacity: 1;
+  }
+  to {
+    max-height: 0;
+    opacity: 0;
   }
 }
