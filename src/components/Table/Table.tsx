@@ -77,8 +77,8 @@ const Table: React.FC = () => {
                 <td className='tb-td-name'>{employee.name}</td>
                 {isDesktop ? (
                   <>
-                    <td className='tb-job'>{employee.job}</td>
-                    <td className='tb-data'>
+                    <td className='tb-tb-job'>{employee.job}</td>
+                    <td className='tb-tb-data'>
                       {formatDate(employee.admission_date)}
                     </td>
                     <td className='tb-cellphone'>
